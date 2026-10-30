@@ -1,0 +1,23 @@
+{
+  "asset": "c934ae76ed987412c8387c6a68320de4",
+  "fileName": "01a18a8d-9996-7415-9099-7e33b45699d7.glb",
+  "prompt": "Traditional Top Hat for Magic Trick ",
+  "negativePrompt": "",
+  "model": "model3d-tripo-p1",
+  "modelName": "Tripo P1",
+  "customSeed": -1,
+  "w3CTraceId": "",
+  "feedback": 1,
+  "refinementMode": "Generation",
+  "promptImageReferenceGuid": "78e043cac8e8f4f15868433d4be49119",
+  "modelReferenceGuid": "",
+  "multiviewFrontGuid": "",
+  "multiviewBackGuid": "",
+  "multiviewLeftGuid": "",
+  "multiviewRightGuid": "",
+  "multiviewTopGuid": "",
+  "multiviewBottomGuid": "",
+  "multiviewLeftFrontGuid": "",
+  "multiviewRightFrontGuid": "",
+  "faceLimit": -1
+}
