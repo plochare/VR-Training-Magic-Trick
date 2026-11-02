@@ -14,9 +14,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MagicTrick_03.unity
     guid: 0fa02805d04814052be175b2e50e269c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MagicTrick_04.unity
     guid: 0dcec7604d89a467987e4229424a51b3
+  - enabled: 1
+    path: Assets/Scenes/MagicTrick_05.unity
+    guid: d3e2f6a0104d34efe9aebbc51c2f497a
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

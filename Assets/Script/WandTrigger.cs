@@ -6,6 +6,12 @@ public class WandTrigger : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.name == "Tophat" && GL.GameState == "Step1Wait"){
+            GL.GameState = "DelayStep2";
+            // Step 2 : Show Hat to Audience
+            // Show UI
+            // Change GameState to Step 2 Wait
+        }
         if (other.gameObject.name == "MagicWand"){
             GL.GameState = "Step4";
             // Step 4 : Wave Wand Over Hat
@@ -13,5 +19,6 @@ public class WandTrigger : MonoBehaviour
             // Enable Rabbit Movavble
             // Change GameState to Step 4 Wait- Grab Rabbit from Hat
         }
+
     }
 }

@@ -14,6 +14,11 @@ public class GameLogic : MonoBehaviour
 
     // Render Objects
     public GameObject bunnyRenderObj;
+    public GameObject cageDoorRenderObj;
+
+    // Particle Objects
+    public GameObject HatAuraFX;
+    public GameObject BunnyShowFX;
 
     // Sensors
     public GameObject hatSensorObj;
@@ -71,6 +76,11 @@ public class GameLogic : MonoBehaviour
                 // Waiting for HatTrigger OnExit
                 // Lift Hat from Table
                 break;
+            case "DelayStep2":
+                // 2 Sec Delay before setting Step2
+                // Give some time for showing hat
+                Invoke("ShowHat", 2.0f); // Call function after 2 sec
+                break;
             case "Step2":
                 // Could Include Another UI / Feedback here
                 GameState = "Step2Wait";
@@ -92,9 +102,14 @@ public class GameLogic : MonoBehaviour
                 // Waiting for WandTrigger OnEnter
                 break;
             case "Step4":
+                // Show Hat FX
+                HatAuraFX.SetActive(true);
                 // Show Step 4 UI screen
                 HideAllUIScreens();
                 screen3Obj.SetActive(true); // Grab Bunny UI
+                // disable Hat Collider
+                topHatObj.GetComponent<Rigidbody>().useGravity = false;
+                topHatObj.GetComponent<BoxCollider>().enabled = false;
                 // make Bunny Grabbable
                 bunnyObj.GetComponent<Oculus.Interaction.Grabbable>().enabled = true;
                 GameState = "Step4Wait";
@@ -105,16 +120,21 @@ public class GameLogic : MonoBehaviour
                 break;
             case "Step5":
                 // Make Bunny Visible when it exits hat
+                HatAuraFX.SetActive(false);
                 bunnyRenderObj.SetActive(true);
                 // Show Step 5 UI screen 
                 HideAllUIScreens();
                 screen4Obj.SetActive(true); // TA DA! UI
+                // Open Cage Door
+                cageDoorRenderObj.transform.localEulerAngles = new Vector3(0f,155f,0f);
                 GameState = "Step5Wait";
                 break;
             case "Step5Wait":
                 // Waiting for cageTrigger OnEnter
                 break;
             case "Step6":
+                // Close Cage Door
+                cageDoorRenderObj.transform.localEulerAngles = new Vector3(0f,0f,0f);
                 // Show Step 6 UI screen
                 HideAllUIScreens();
                 screen5Obj.SetActive(true); // Finish Module! UI
@@ -134,6 +154,12 @@ public class GameLogic : MonoBehaviour
     // Bunny Grab Select Event
     public void RabbitSelected(){
         // Play Audio or Show Particle Effect
+        BunnyShowFX.SetActive(true);
+    }
+
+    // Show Hat Advance to Step2
+    public void ShowHat(){
+        GameState = "Step2";
     }
 
 }
