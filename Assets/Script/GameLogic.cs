@@ -121,6 +121,7 @@ public class GameLogic : MonoBehaviour
             case "Step5":
                 // Make Bunny Visible when it exits hat
                 HatAuraFX.SetActive(false);
+                RabbitDeSelected();
                 bunnyRenderObj.SetActive(true);
                 // Show Step 5 UI screen 
                 HideAllUIScreens();
@@ -153,8 +154,16 @@ public class GameLogic : MonoBehaviour
 
     // Bunny Grab Select Event
     public void RabbitSelected(){
-        // Play Audio or Show Particle Effect
-        BunnyShowFX.SetActive(true);
+        if (GameState == "Step4Wait"){
+            // Play Audio or Show Particle Effect
+            BunnyShowFX.SetActive(true);
+        }
+    }
+
+    // Bunny Grab DeSelect Event
+    public void RabbitDeSelected(){
+        // Hide Particle Effect
+        BunnyShowFX.SetActive(false);
     }
 
     // Show Hat Advance to Step2
